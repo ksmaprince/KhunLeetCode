@@ -1,2 +1,2 @@
 # KhunLeetCode
-My Daily LeetCode Solutions - Everyday practices
+My daily LeetCode 150 interviews Solutions - Everyday practices
