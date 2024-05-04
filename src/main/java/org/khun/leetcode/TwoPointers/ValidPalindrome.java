@@ -3,10 +3,16 @@ package org.khun.leetcode.TwoPointers;
 public class ValidPalindrome {
 
     public static boolean isPalindrome(String s) {
-        String s1 = s.replaceAll("[^a-zA-Z0-9]+","").toLowerCase();
-        StringBuilder sb = new StringBuilder(s1.trim());
-        sb.reverse();
-        return s1.equals(sb.toString());
+        if (s == null || s.isEmpty()) return true;
+        s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) return false;
+            left++;
+            right--;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
