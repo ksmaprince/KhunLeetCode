@@ -13,7 +13,7 @@ fun removeDuplicates(nums: IntArray): Int {
     return index
 }
 
-fun main(){
+fun main() {
     val nums1 = intArrayOf(1, 1, 2)
     println(removeDuplicates(nums1))
 
