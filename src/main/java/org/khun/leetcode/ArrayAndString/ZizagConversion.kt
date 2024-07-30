@@ -1,22 +1,22 @@
 package org.khun.leetcode.ArrayAndString
 
 fun convert(s: String, numRows: Int): String {
-    if (numRows == 1 || s.length < numRows) return s
+    if(numRows == 1 || s.length < numRows) return s
 
-    val arr = Array(numRows) { StringBuilder() }
-    for (i in arr.indices) arr[i] = StringBuilder()
-
+    val rows = Array(numRows){StringBuilder()}
+    var curRow = 0
     var direction = false
-    var count = 0
 
-    for (i in s.indices) {
-        arr[count].append(s[i])
-        if (count == 0 || count == numRows - 1) direction = !direction
-        if (direction) count++ else count--
+    for(ch in s){
+        rows[curRow].append(ch)
+        if(curRow == 0 || curRow == numRows-1) direction = !direction
+        curRow += if(direction) 1 else -1
     }
 
     val result = StringBuilder()
-    for (i in arr.indices) result.append(arr[i])
+    for(row in rows){
+        result.append(row)
+    }
 
     return result.toString()
 }
@@ -24,5 +24,5 @@ fun convert(s: String, numRows: Int): String {
 fun main() {
     println(convert("PAYPALISHIRING", 3))
     println(convert("PAYPALISHIRING", 4))
-    println(convert("A", 1))
+    println(convert("AB", 1))
 }
