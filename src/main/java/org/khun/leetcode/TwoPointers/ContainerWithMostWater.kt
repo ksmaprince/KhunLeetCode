@@ -1,14 +1,16 @@
 package org.khun.leetcode.TwoPointers
 
+import kotlin.math.min
+
 fun maxArea(height: IntArray): Int {
     var maxA = 0
     var left = 0
     var right = height.size - 1
 
     while (left<right){
-        val h = Math.min(height[left], height[right])
+        val h = minOf(height[left], height[right])
         val w = right - left
-        maxA = Math.max(maxA, h * w)
+        maxA = maxOf(maxA, h * w)
         if (height[left] < height[right]){
             left++
         }else{
